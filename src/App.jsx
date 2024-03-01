@@ -1,4 +1,7 @@
+import DisplayMovies from './components/DisplayMovies'
+
 import './App.css'
+
 
 function App() {
 
@@ -9,6 +12,7 @@ function App() {
 
       </header>
       <main>
+        <DisplayMovies />
 
       </main>
       <footer>
