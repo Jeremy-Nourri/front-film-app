@@ -1,8 +1,9 @@
-import DisplayMovies from './components/DisplayMovies'
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import { setMovies } from "./components/features/MovieSlice";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 
+import DisplayMovies from './components/DisplayMovies'
+import FormMovie from './components/FormMovie';
 
 import './App.css'
 
@@ -11,7 +12,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies.movies);
 
   useEffect(() => {
     (async () => {
@@ -37,7 +38,11 @@ function App() {
           movies.length === 0 ? (
           <span className="loader"></span>
           ) : (
-            <DisplayMovies movies={movies} />
+
+            <>
+              <FormMovie />
+              <DisplayMovies movies={movies} />
+            </>
           )
         }
 
