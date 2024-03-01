@@ -1,22 +1,21 @@
-import { useEffect } from "react";
+/* eslint-disable react/prop-types */
 
-const DisplayMovies = () => {
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const response = await fetch('http://localhost:3000/movies');
-                const data = await response.json();
-                console.log(data);
-            } catch (error) {
-                console.error("Erreur lors de la récupération des films", error);
-            }
-        }
-        )();
-    }, []);
+const DisplayMovies = ({ movies }) => {
 
   return (
-    <div>DisplayMovies</div>
+    <div>
+      <h1>Movies app</h1>
+      {movies &&
+        movies.map((movie) => (
+          <div key={movie.id}>
+            <h2>{movie.title}</h2>
+            <p>{movie.description}</p>
+            <p>{movie.director}</p>
+            <p>{movie.releaseDate}</p>
+          </div>
+        ))
+      }
+    </div>
   )
 }
 
